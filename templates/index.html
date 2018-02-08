@@ -7,21 +7,19 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
-    <script src="{% static 'js/custom.js' %}"></script>
-
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
-	<center><p style="font-size: 50px; color: white;">Risk Management</p></center>
+	<center><p>Risk Management</p></center>
 </nav>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8">
-			<form role="form" action="{% url 'RiskApp:manage_model' %}" method="POST" autocomplete="off" id="data_sub">
+			<form role="form" action="{% url 'RiskApp:manage_model' %}" method="POST" autocomplete="off" id="sub">
 				{% csrf_token %}
 				<div class="form-group col-md-6">
 					<label for="sel1">Select your risk type:</label>
@@ -44,7 +42,6 @@
 				<label class="control-label" for="field1">Risk Fields</label>
 				<div class="controls"> 
 					<div class="entry input-group col-xs-10">
-						<!-- <input class="form-control" name="fields[]" type="text" placeholder="Type something" />  -->
 						<span class="input-group-btn">
 							<button class="btn btn-success btn-add-text form-control" type="button">Add Text Field
 								<span class="glyphicon glyphicon-plus"></span>
@@ -57,7 +54,6 @@
 			<div class="control-group">
 				<div class="controls"> 
 					<div class="entry input-group col-xs-10">
-						<!-- <input class="form-control" name="fields[]" type="text" placeholder="Type something" />  -->
 						<span class="input-group-btn">
 							<button class="btn btn-success btn-add-number form-control" type="button">Add Number Field
 								<span class="glyphicon glyphicon-plus"></span>
@@ -71,7 +67,6 @@
 			<div class="control-group">
 				<div class="controls"> 
 					<div class="entry input-group col-xs-10">
-						<!-- <input class="form-control" name="fields[]" type="text" placeholder="Type something" />  -->
 						<span class="input-group-btn">
 							<button class="btn btn-success btn-add-date form-control" type="button">Add Date Field
 								<span class="glyphicon glyphicon-plus"></span>
@@ -81,6 +76,30 @@
 					<small>Press <span class="glyphicon glyphicon-plus gs"></span> to add another form field :)</small> 
 				</div>
 			</div>
+
+			<div class="control-group">
+				<div class="controls"> 
+					<div class="entry input-group col-xs-10">
+						<span class="input-group-btn">
+							<a class="btn btn-primary " id="custom" href="{% url 'RiskApp:risk_template' %}" role="button">View all risks</a>
+						</span>
+					</div>
+					<small>Press <span class="glyphicon glyphicon-plus gs"></span> to view all risks :)</small> 
+				</div>
+			</div>
+
+			<div class="control-group">
+				<div class="controls"> 
+					<div class="entry input-group col-xs-10">
+						<span class="input-group-btn">
+							<a class="btn btn-primary " id="custom" href="{% url 'RiskApp:single_risk' %}" role="button">View Single Risk</a>
+						</span>
+					</div>
+					<small>Press <span class="glyphicon glyphicon-plus gs"></span> to view risk :)</small> 
+				</div>
+			</div>
+
+			
 		</div>
 	</div>
 	</div>
@@ -90,9 +109,9 @@
 			$("#form_field").append("<div class='panel panel-primary'> <a href='javascript:void(0)' onclick='return remove(this)' aria-label='Close'><span class='glyphicon glyphicon-remove-sign btn-lg'></span></a>\
 			<div class='panel-body'> <div class='form-group'> \
 			<label  class='control-label'>Label</label> \
-			<input type='text' class='form-control' name='risk[label["+text_field+"]]' value='' required='' placeholder='Please enter label' maxlength='30' pattern='[A-Za-z_]'> \
+			<input type='text' class='form-control' name='risk[label["+text_field+"]]' value='' required='' placeholder='Please enter label' pattern='^[a-zA-Z_]*$' maxlength='30' title='Ex: name or first_name'> \
 			<span class='help-block'></span> \
-			</div> <div class='form-group'> \
+			</div><div class='form-group'> \
 			<label  class='control-label'>Value</label>\
 			  <input type='text' class='form-control' name='risk[value["+text_field+"]]' value='' required='' placeholder='Please enter value'> \
 			  <input type='hidden' class='form-control' name='risk[type["+text_field+"]]' value='string' required='' placeholder='Please enter value'>\
@@ -108,7 +127,7 @@
 			$("#form_field").append("<div class='panel panel-primary'> <a href='javascript:void(0)' onclick='return remove(this)' aria-label='Close'><span class='glyphicon glyphicon-remove-sign btn-lg'></span></a>\
 			<div class='panel-body'> <div class='form-group'> \
 			<label  class='control-label'>Label</label> \
-			<input type='text' class='form-control' name='risk[label["+text_field+"]]' value='' required='' placeholder='Please enter label' onkeypress='return onlyAlphabets(event,this);' maxlength='30'>\
+			<input type='text' class='form-control' name='risk[label["+text_field+"]]' value='' required='' placeholder='Please enter label' pattern='^[a-zA-Z_]*$' maxlength='30' title='Ex: name or first_name'>\
 			  <span class='help-block'></span> </div>\
 			  <div class='form-group'> <label  class='control-label'>Value</label>\
 			  <input type='number' class='form-control' name='risk[value["+text_field+"]]' value='' required='' placeholder='Please enter value'>\
@@ -123,7 +142,7 @@
 			$("#form_field").append("<div class='panel panel-primary'> <a href='javascript:void(0)' onclick='return remove(this)' aria-label='Close'><span class='glyphicon glyphicon-remove-sign btn-lg'></span></a>\
 			<div class='panel-body'> <div class='form-group'> \
 			<label  class='control-label'>Label</label> \
-			<input type='text' class='form-control' name='risk[label["+text_field+"]]' value='' required='' placeholder='Please enter label' onkeypress='return onlyAlphabets(event,this);' maxlength='30'>\
+			<input type='text' class='form-control' name='risk[label["+text_field+"]]' value='' required='' placeholder='Please enter label' pattern='^[a-zA-Z_]*$' maxlength='30' title='Ex: name or first_name'>\
 			  <span class='help-block'></span> </div>\
 			  <div class='form-group'> <label  class='control-label'>Value</label>\
 			  <input type='text' class='form-control datepicker' name='risk[value["+text_field+"]]' value='' required='' placeholder='Please enter value'>\
@@ -137,16 +156,16 @@
 		$('body').on('focus',".datepicker", function(){
           $(this).datepicker();
       })
-		$("#data_sub").submit(function(){
-			if(text_field !=0){
-				return true;
+
+		$("#sub").submit(function(){
+			if(text_field!=0){
+				return true
 			}
-			else
-			{	
-				alert("Please select atleast one field to add in this risk.")
-				return false;
+			else{
+				alert("Please select at least one field")
+				return false
 			}
-		})
+		});
 	</script>
 	
 	

@@ -15,24 +15,34 @@
 					</div>
 					<div class="panel panel-info">
 						<div class="panel-heading">
-							<h2 >Risk Details</h2>
+						{% if risk_list %}
+							<h2 >All Risks</h2>
+						{% endif %}
+						{% if risk %}
+							<h2>Single Risk</h2>
+						{% endif %}
 						</div>
 						<div class="panel-body">
 							<div class="row">
 								<div class=" col-md-12 col-lg-12 ">
 									<ul class="datalist">
+									{% if risk_list %}
 										<li>
-											{% for a in col %}
-												<div>
-													<strong>{{a}}</strong>
-												</div>
-											{% endfor %}
+										{% for i in risk_list %}
+										<div>
+											<strong>{{i}}</strong>
+										</div>
+										{% endfor %}	
+											
 										</li>
+									{% endif %}
+									{% if risk %}
 										<li>
-											{% for i in data %}
-												<div>{{i}}</div>
-											{% endfor %}
-									    </li>
+										<div>
+											<strong>{{risk}}</strong>
+										</div>
+										</li>
+									{% endif %}
 									</ul>
 								</div>
 							</div>

@@ -39,3 +39,11 @@
     position:  absolute;
     right: 0px;
 }
+
+.navbar {
+	font-size: 50px; color: white;
+}
+
+#custom {
+	height: 40px; width: 330px; font-size: 15px;
+}
