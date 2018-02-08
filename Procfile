@@ -1,1 +1,1 @@
-web: gunicorn RiskManagement.wsgi:app --log-file -
+web: gunicorn RiskManagement.wsgi --timeout 90
