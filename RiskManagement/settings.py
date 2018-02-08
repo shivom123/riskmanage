@@ -119,7 +119,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-heroku config:set DEBUG_COLLECTSTATIC=1
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
