@@ -82,7 +82,10 @@ WSGI_APPLICATION = 'RiskManagement.wsgi.application'
 try:
     from .localsetting import *
 except ImportError:
-    pass
+    db_from_env = dj_database_url.config()
+    DATABASES = {
+        'default': db_from_env
+        }
 
 
 
