@@ -79,10 +79,10 @@ DATABASES = {
     'default': db_from_env
     }
 
-try:
-    from .localsetting import *
-except ImportError:
-    pass
+# try:
+#     from .localsetting import *
+# except ImportError:
+#     pass
 
 
 
