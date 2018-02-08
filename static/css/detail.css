@@ -1,0 +1,30 @@
+.datalist{
+	width:100%;
+	list-style: none;
+	padding-left: 0px;
+}
+.datalist li{
+	width: 50%;
+    float: left;
+    border: 1px solid #ccc;
+}
+.datalist li div{
+	border-bottom:1px solid #ccc;
+	padding: 4px 15px;
+}
+.datalist li div strong{
+	text-transform: capitalize;
+    letter-spacing: 0.5px;
+}
+.datalist li div:last-child{
+	border-bottom:0px solid #ccc;
+}
+
+.panel-info >.panel-heading {
+    color: #286090;
+    background-color: #008cd2;
+    border-color: #bce8f1;
+}
+.cart_section .panel-heading h2{
+color:#fff;
+}

@@ -1,0 +1,15 @@
+{% load static i18n %}
+ <head>
+      <title>Risk Management</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+   </head>
+<div class="jumbotron text-xs-center">
+  <h1 class="display-3">Thank You!</h1>
+  {{data}}
+  <p class="lead">
+    <a class="btn btn-primary btn-sm" href="{% url 'RiskApp:home' %}" role="button" style="height: 40px; width: 200px; font-size: 15px;">Continue to homepage</a>
+  </p>
+</div>

@@ -1,0 +1,41 @@
+.entry:not(:first-of-type)
+{
+	margin-top: 10px;
+}
+
+.glyphicon
+{
+	font-size: 12px;
+
+
+}
+
+.container {
+	width: 1170px;
+	margin-left: 1030px;
+	margin-top: -69px;
+}
+
+.form-group {
+	margin-bottom: 15px;
+	margin-left: 38px;
+}
+.form-group .panel{
+	position:  relative;
+}
+.custom-class{
+	margin-top: 10px;
+}
+
+.controls{
+	margin: 10px 0; 
+}
+
+.btn-lg {
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+    position:  absolute;
+    right: 0px;
+}

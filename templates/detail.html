@@ -1,0 +1,50 @@
+{% load staticfiles %}
+{% block content %}
+<html>
+<head>
+	<title>Risk Management</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   	<link rel="stylesheet" type="text/css" href="{% static 'css/detail.css' %}">
+
+</head>
+	<section class="cart_section">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-2 toppad" >
+					<div class="heading_top">
+						<h3></h3>
+					</div>
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h2 >Risk Details</h2>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class=" col-md-12 col-lg-12 ">
+								<ul class="datalist">
+								<li>
+									{% for a in col %}
+									<div><strong>{{a}}</strong></div>
+									{% endfor %}
+
+								</li>
+								<li>
+								{% for i in data %}
+								<div>{{i}}</div>
+								{% endfor %}
+							    </li>
+								</ul>
+								</div>
+								</div>
+							</div>
+							<div class="panel-footer">
+								<a class="btn btn-primary btn-sm" href="{% url 'RiskApp:home' %}" role="button" style="height: 40px; width: 200px; font-size: 15px;">Continue to homepage</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</html>
+	{% endblock %}
