@@ -74,6 +74,10 @@ def all_risks(request):
     return render(request, 'view_risks.html', {'risk_list': risk_list})
 
 def single_type(request):
-    print("singel")
-    risk_name = RiskName.objects.get(id=1)
-    return render(request, 'view_risks.html',{'risk':risk_name.title})
+    try:
+        risk_name = RiskName.objects.get(id=8)
+        return render(request, 'view_risks.html',{'risk':risk_name.title})
+    except Exception as e:
+        print("eee",e)
+        return render(request, 'view_risks.html',{"message":"No risk is available right now !"})
+    

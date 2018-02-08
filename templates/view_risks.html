@@ -21,6 +21,9 @@
 						{% if risk %}
 							<h2>Single Risk</h2>
 						{% endif %}
+						{% if message %}
+							<h2>Risk</h2>
+						{% endif %}
 						</div>
 						<div class="panel-body">
 							<div class="row">
@@ -40,6 +43,13 @@
 										<li>
 										<div>
 											<strong>{{risk}}</strong>
+										</div>
+										</li>
+									{% endif %}
+									{% if message %}
+									<li>
+										<div>
+											<strong>{{message}}</strong>
 										</div>
 										</li>
 									{% endif %}
