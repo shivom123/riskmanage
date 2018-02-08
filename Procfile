@@ -1,1 +1,1 @@
-web: gunicorn RiskApp.wsgi --log-file -
+web: gunicorn RiskManagement.wsgi:app --log-file -
