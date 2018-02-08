@@ -75,7 +75,7 @@ def all_risks(request):
 
 def single_type(request):
     try:
-        risk_name = RiskName.objects.get(id=8)
+        risk_name = RiskName.objects.get(id=2)
         return render(request, 'view_risks.html',{'risk':risk_name.title})
     except Exception as e:
         print("eee",e)
